@@ -19,6 +19,14 @@ pipeline {
         sh 'ls -la'
       }
     }
+
+     stage('Inject .env') {
+      steps {
+        withCredentials([file(credentialsId: 'node-app-env', variable: 'ENV_FILE')]) {
+          sh 'cp $ENV_FILE .env'
+        }
+      }
+    }
     
 
     stage('Stop Old Containers') {
