@@ -24,14 +24,14 @@ pipeline {
     stage('Stop Old Containers') {
       steps {
         echo 'Stopping old containers...'
-        // sh 'docker compose down'
+        sh 'docker compose down'
       }
     }
 
     stage('Start New Containers') {
       steps {
         echo 'Starting new containers...'
-        // sh 'docker compose up -d'
+        sh 'docker compose up -d'
       }
     }
 
